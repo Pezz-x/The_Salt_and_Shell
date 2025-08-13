@@ -1,0 +1,55 @@
+-- activate venv
+source .venv/Scripts/activate
+
+-- list installed packages
+pip list
+
+-- install requirements
+pip install -r requirements.txt 
+
+-- add packages to requirements
+pip freeze local > requirements.txt 
+
+
+
+-- run server
+python manage.py runserver
+
+
+
+-- create project - replace {PROJECT_NAME}  and {DIRECTORY NAME} (eg.: django-admin startproject my_project .)dot to create in currenty DIRECTORY
+django-admin startproject {PROJECT_NAME} {DIRECTORY NAME}
+
+-- create app 
+python manage.py startapp {APP NAME}
+
+-- Create superuser
+python manage.py createsuperuser
+
+-- dry run Make migations (dry run first to make sure there are no issies)
+python manage.py makemigrations {APP NAME} --dry-run
+
+-- Make migrations (generates new migration files)
+python manage.py makemigrations
+
+-- Make migations for a single app
+python manage.py makemigrations {APP NAME}
+
+-- Apply all migrations (applies migration files to database)
+python manage.py migrate
+
+-- Apply migration for a single app
+python manage.py migrate {APP NAME}
+
+-- unapply all migrations for an app
+python manage.py migrate {APP NAME} zero
+
+
+-- collect static files
+python manage.py collectstatic
+
+-- run tests
+python manage.py test
+
+
+
