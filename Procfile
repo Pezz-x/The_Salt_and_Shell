@@ -1,0 +1,1 @@
+web: gunicorn the_salt_and_shell.wsgi
