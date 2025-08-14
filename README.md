@@ -6,3 +6,7 @@
 
 ![Wireframe 1](./static/images/readme_images/Wireframe%201.png)
 ![Wireframe 2](./static/images/readme_images/Wireframe%202.png)
+
+### ERD design
+
+![Wireframe 1](./static/images/readme_images/ERD.png)
