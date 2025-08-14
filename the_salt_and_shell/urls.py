@@ -16,9 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import render
+
+def home_page(request):
+    """View for the home page"""
+    return render(request, 'home.html')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('', home_page, name='home'),
     path('bookings/', include('bookings.urls')),
 ]
