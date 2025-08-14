@@ -8,5 +8,4 @@ class Customer(models.Model):
     phone_number = models.CharField(max_length=20)
 
     def __str__(self):
-    return f"{self.name} ({self.email}, {self.phone_number})"
-
+        return f"{self.name} ({self.email}, {self.phone_number})"

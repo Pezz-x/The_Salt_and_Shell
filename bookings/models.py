@@ -1,4 +1,5 @@
 from django.db import models
+from customers.models import Customer
 
 # Create your models here.
 class Booking(models.Model):
@@ -10,4 +11,3 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"{self.customer.name} - {self.time_slot_id} ({self.special_requests or 'No requests'})"
-
