@@ -7,27 +7,26 @@ from .models import Booking
 
 class BookingListView(ListView):
     model = Booking
-    template_name = 'bookings/booking_list.html'
+    template_name = 'booking_list.html'
     context_object_name = 'bookings'
 
 class BookingDetailView(DetailView):
     model = Booking
-    template_name = 'bookings/booking_detail.html'
+    template_name = 'booking_detail.html'
 
 class BookingCreateView(CreateView):
     model = Booking
-    fields = ['customer', 'time_slot_id', 'party_size', 'special_requests']
-    template_name = 'bookings/booking_form.html'
+    fields = ['customer', 'time_slot', 'party_size', 'special_requests']
+    template_name = 'booking_form.html'
     success_url = reverse_lazy('booking_list')
 
 class BookingUpdateView(UpdateView):
     model = Booking
-    fields = ['customer', 'time_slot_id', 'party_size', 'special_requests']
-    template_name = 'bookings/booking_form.html'
+    fields = ['customer', 'time_slot', 'party_size', 'special_requests']
+    template_name = 'booking_form.html'
     success_url = reverse_lazy('booking_list')
 
 class BookingDeleteView(DeleteView):
     model = Booking
-    template_name = 'bookings/booking_confirm_delete.html'
+    template_name = 'booking_confirm_delete.html'
     success_url = reverse_lazy('booking_list')
-
