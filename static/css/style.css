@@ -21,6 +21,11 @@
 }
 
 
+body {
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
 /* Dark mode switch start */
 #theme-switch{
   height: 40px;
