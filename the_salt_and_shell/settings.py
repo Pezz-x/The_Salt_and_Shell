@@ -23,6 +23,7 @@ else:
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+PROJECT_TEMPLATES_DIR = os.path.join(BASE_DIR, 'the_salt_and_shell', 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -71,7 +72,7 @@ ROOT_URLCONF = 'the_salt_and_shell.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [TEMPLATES_DIR, PROJECT_TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
