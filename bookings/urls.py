@@ -1,5 +1,11 @@
 from django.urls import path
-from . import views
+from .views import (
+    BookingListView,
+    BookingDetailView,
+    BookingCreateView,
+    BookingUpdateView,
+    BookingDeleteView,
+)
 
 urlpatterns = [
     path('', BookingListView.as_view(), name='booking-list'),
