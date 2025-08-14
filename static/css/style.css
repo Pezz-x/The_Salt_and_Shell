@@ -1,0 +1,21 @@
+
+
+
+:root {
+    --title-font: ;
+    --para-font: ;
+
+    --base-color: ;      
+    --base-variant: ;    
+    --text-color: ;       
+    --primary-color: ;    
+    --accent-color: ;     
+}
+
+.darkmode{
+    --base-color: ;
+    --base-variant: ;
+    --text-color: ;
+    --primary-color: ;     
+    --accent-color: ;      
+}
