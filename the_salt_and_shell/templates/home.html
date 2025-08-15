@@ -6,20 +6,77 @@
 <div class="container text-center">
     {% load static %}
     <h1>The Salt & Shell</h1>
-    <img src="{% static 'images/hero.jpg' %}" alt="Restaurant Interior" class="img-fluid rounded shadow">
+    <img src="{% static 'images/hero2.jpg' %}" alt="Restaurant Interior" class="img-fluid rounded shadow">
     <div class="mt-3">
         <button class="btn btn-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#menuModal">View
             Menu</button>
     </div>
     <h2 class="mt-5">About Us</h2>
-    <p>Welcome to The Salt & Shell, where we offer a unique dining experience by the sea. Our menu features the freshest
-        seafood and locally sourced ingredients, all prepared with a creative twist. Join us for a meal you won't
-        forget!
-    </p>
+    <div class="about-section">
+        <div class="about-text">
+            <p>At The Salt & Shell, we believe dining should be more than just a meal—it should be a memory. Nestled
+                along the coast, our restaurant blends the charm of seaside living with a passion for culinary
+                creativity. From the moment you walk through our doors, you're greeted with the aroma of fresh herbs,
+                the sound of waves, and the warmth of a team that treats every guest like family.<br><br>
+
+                Our menu celebrates the bounty of the ocean and the richness of local farms. Whether you're savoring our
+                signature crab linguine, indulging in a plate of grilled scallops with citrus butter, or sipping a
+                chilled glass of white wine on the terrace, every dish is crafted to delight.<br><br>
+
+                We’re proud to support sustainable fishing practices and seasonal sourcing, ensuring that every bite is
+                both ethical and exceptional. Whether you're joining us for a romantic dinner, a family gathering, or a
+                spontaneous lunch by the sea, The Salt & Shell promises an experience that’s fresh, flavorful, and
+                unforgettable.<br>
+
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'images/about.jpg' %}" alt="About The Salt & Shell" class="img-fluid">
+        </div>
+    </div>
     <h2 class="mt-5">Contact Us</h2>
     <div class="card shadow mt-3">
-        <div class="card-body">
-            <a href="{% url 'booking_create' %}" class="btn btn-primary">Create Booking</a>
+        <div class="card-body text-start">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="full_name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="full_name" name="full_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required
+                                placeholder="Tell us how we can help you..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+            <div id="confirmationMessage" style="display: none;" class="alert alert-success mt-4">
+                Thank you! Your message has been sent.
+            </div>
+
+            <script>
+                const form = document.querySelector('form');
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Prevent actual submission
+                    // You can add AJAX here to send data if needed
+                    document.getElementById('confirmationMessage').style.display = 'block';
+                    form.reset();
+
+                });
+            </script>
+
         </div>
     </div>
 </div>

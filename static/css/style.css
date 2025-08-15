@@ -1,33 +1,111 @@
-
-
 /* TEMP COLOUR SCHEME FOR TESTING - COLOUR SCHEME YET TO BE DECIDED */
+@import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
+
 :root {
-    --title-font: ;
-    --para-font: ;
+  --title-font: "Marck Script", cursive;
+  --para-font: ;
 
-    --base-color: #f0efef;      
-    --base-variant: #FFFFFF;    
-    --text-color: #1c1c1c;       
-    --primary-color: #f0890c;    
-    --accent-color: #1763A6;     
+  --base-color: #f0efef;
+  --base-variant: #ffffff;
+  --text-color: #1c1c1c;
+  --primary-color: #f0890c;
+  --accent-color: #1763a6;
 }
 
-.darkmode{
-    --base-color: #1C1C1D;
-    --base-variant: #292c2e;
-    --text-color: #FFFFFF;
-    --primary-color: #F2A341;     
-    --accent-color: #6fb5e0;      
+.darkmode {
+  --base-color: #1c1c1d;
+  --base-variant: #292c2e;
+  --text-color: #ffffff;
+  --primary-color: #f2a341;
+  --accent-color: #6fb5e0;
 }
-
 
 body {
-    background-color: var(--base-color);
-    color: var(--text-color);
+  background-color: var(--base-color);
+  color: var(--text-color);
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: var(--base-color) !important;
+}
+
+.navbar .navbar-brand {
+  font-family: var(--title-font);
+  font-size: 1.8rem;
+  color: #000000 !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-nav .nav-link {
+  color: #000000 !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .navbar-nav .nav-link:hover {
+  color: #333333 !important;
+}
+
+/* Title styling */
+h1 {
+  font-family: var(--title-font);
+  font-size: 3.5rem;
+}
+
+/* Menu modal title styling */
+#menuModalLabel,
+.modal-body h6 {
+  font-family: var(--title-font);
+  color: #000000 !important;
+}
+
+#menuModalLabel {
+  font-size: 1.8rem;
+}
+
+.modal-body h6 {
+  font-size: 1.3rem;
+}
+
+/* About section styling */
+.about-section {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-image {
+  flex: 0 0 300px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Home page button styling */
+.btn-primary {
+  background-color: transparent !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.btn-primary:hover {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
 }
 
 /* Dark mode switch start */
-#theme-switch{
+#theme-switch {
   height: 40px;
   width: 40px;
   padding: 0;
@@ -39,16 +117,16 @@ body {
   border: 2px solid;
   border-color: var(--text-color);
 }
-#theme-switch i{
-    color: var(--primary-color);
+#theme-switch i {
+  color: var(--primary-color);
 }
-#theme-switch i:last-child{
-    display: none;
+#theme-switch i:last-child {
+  display: none;
 }
-.darkmode #theme-switch i:first-child{
-    display: none;
+.darkmode #theme-switch i:first-child {
+  display: none;
 }
-.darkmode #theme-switch i:last-child{
-    display: block;
+.darkmode #theme-switch i:last-child {
+  display: block;
 }
 /* Dark mode switch end */
