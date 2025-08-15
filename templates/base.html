@@ -31,8 +31,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/bookings/">Book a Table</a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="/bookings/view-bookings/">View Bookings</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                        <a class="nav-link btn btn-outline-light ms-2" href="/accounts/logout/">Logout</a>
+                        {% else %}
+                        <a class="nav-link btn btn-outline-light ms-2" href="/accounts/login/">Staff Login</a>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
@@ -90,7 +99,9 @@
     <!-- Custom JS Script -->
     <script src="{% static 'js/script.js' %}" defer></script>
     <!-- Google Maps Script -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmMG-cYuzEoXkKqojNmju904PP8nkO92c&libraries=maps,marker" defer></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmMG-cYuzEoXkKqojNmju904PP8nkO92c&libraries=maps,marker"
+        defer></script>
 </body>
 
 </html>
