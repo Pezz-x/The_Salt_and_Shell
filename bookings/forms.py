@@ -7,7 +7,7 @@ class BookingForm(forms.ModelForm):
     customer_email = forms.EmailField()
     customer_phone = forms.CharField(max_length=20)
     date = forms.DateField(widget=forms.SelectDateWidget)
-    time_slot = forms.ModelChoiceField(queryset=TimeSlot.objects.none())
+    time_slot = forms.ModelChoiceField(queryset=TimeSlot.objects.all())
 
     class Meta:
         model = Booking
@@ -19,15 +19,22 @@ class BookingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # If date is pre-filled, filter slots for that date
+        # Default: show all available slots
+        self.fields['time_slot'].queryset = TimeSlot.objects.filter(is_available=True)
+
+        # If user picked a date, filter down further
         if 'date' in self.data:
             try:
-                date_val = self.data.get('date')
-                # date_val is "YYYY-MM-DD"
                 from datetime import datetime
+                date_val = self.data.get('date')
                 parsed_date = datetime.strptime(date_val, "%Y-%m-%d").date()
-                self.fields['time_slot'].queryset = TimeSlot.objects.filter(start_time__date=parsed_date, is_available=True)
+                self.fields['time_slot'].queryset = TimeSlot.objects.filter(
+                    start_time__date=parsed_date,
+                    is_available=True
+                )
             except ValueError:
                 pass
         elif self.instance.pk:
-            self.fields['time_slot'].queryset = TimeSlot.objects.filter(start_time__date=self.instance.time_slot.start_time.date())
+            self.fields['time_slot'].queryset = TimeSlot.objects.filter(
+                start_time__date=self.instance.time_slot.start_time.date()
+            )
