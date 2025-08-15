@@ -1,21 +1,54 @@
 
 
-
+/* TEMP COLOUR SCHEME FOR TESTING - COLOUR SCHEME YET TO BE DECIDED */
 :root {
     --title-font: ;
     --para-font: ;
 
-    --base-color: ;      
-    --base-variant: ;    
-    --text-color: ;       
-    --primary-color: ;    
-    --accent-color: ;     
+    --base-color: #f0efef;      
+    --base-variant: #FFFFFF;    
+    --text-color: #1c1c1c;       
+    --primary-color: #f0890c;    
+    --accent-color: #1763A6;     
 }
 
 .darkmode{
-    --base-color: ;
-    --base-variant: ;
-    --text-color: ;
-    --primary-color: ;     
-    --accent-color: ;      
+    --base-color: #1C1C1D;
+    --base-variant: #292c2e;
+    --text-color: #FFFFFF;
+    --primary-color: #F2A341;     
+    --accent-color: #6fb5e0;      
 }
+
+
+body {
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+/* Dark mode switch start */
+#theme-switch{
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--base-variant);
+  top: 10px;
+  right: 10px;
+  margin-left: 1rem;
+  border: 2px solid;
+  border-color: var(--text-color);
+}
+#theme-switch i{
+    color: var(--primary-color);
+}
+#theme-switch i:last-child{
+    display: none;
+}
+.darkmode #theme-switch i:first-child{
+    display: none;
+}
+.darkmode #theme-switch i:last-child{
+    display: block;
+}
+/* Dark mode switch end */
