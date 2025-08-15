@@ -8,7 +8,8 @@
     <h1>The Salt & Shell</h1>
     <img src="{% static 'images/hero.jpg' %}" alt="Restaurant Interior" class="img-fluid rounded shadow">
     <div class="mt-3">
-        <a href="#" class="btn btn-primary btn-lg mt-5">View Menu</a>
+        <button class="btn btn-primary btn-lg mt-5" data-bs-toggle="modal" data-bs-target="#menuModal">View
+            Menu</button>
     </div>
     <h2 class="mt-5">About Us</h2>
     <p>Welcome to The Salt & Shell, where we offer a unique dining experience by the sea. Our menu features the freshest
@@ -19,6 +20,92 @@
     <div class="card shadow mt-3">
         <div class="card-body">
             <a href="{% url 'booking:create' %}" class="btn btn-primary btn-lg">Book Now</a>
+        </div>
+    </div>
+</div>
+
+<!-- Menu Modal -->
+<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="menuModalLabel">Our Menu</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-primary">Appetizers</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <strong>Salt & Shell Platter</strong> - £18<br>
+                                <small class="text-muted">Fresh oysters, prawns, and mussels</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Crispy Calamari</strong> - £12<br>
+                                <small class="text-muted">With lemon aioli and marinara sauce</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Pan-seared Scallops</strong> - £16<br>
+                                <small class="text-muted">With cauliflower purée and pancetta</small>
+                            </li>
+                        </ul>
+
+                        <h6 class="text-primary mt-4">Main Courses</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <strong>Grilled Sea Bass</strong> - £24<br>
+                                <small class="text-muted">With Mediterranean vegetables</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Lobster Thermidor</strong> - £32<br>
+                                <small class="text-muted">Classic preparation with gruyère</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Fish & Chips</strong> - £18<br>
+                                <small class="text-muted">Beer-battered cod with triple-cooked chips</small>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-primary">Desserts</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <strong>Lemon Posset</strong> - £8<br>
+                                <small class="text-muted">With shortbread biscuits</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Chocolate Tart</strong> - £9<br>
+                                <small class="text-muted">With salted caramel ice cream</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Eton Mess</strong> - £7<br>
+                                <small class="text-muted">Fresh strawberries and cream</small>
+                            </li>
+                        </ul>
+
+                        <h6 class="text-primary mt-4">Beverages</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <strong>House Wine</strong> - £6/glass<br>
+                                <small class="text-muted">Red, white, or rosé</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Craft Beer</strong> - £5<br>
+                                <small class="text-muted">Local brewery selection</small>
+                            </li>
+                            <li class="mb-2">
+                                <strong>Specialty Cocktails</strong> - £9<br>
+                                <small class="text-muted">Sea breeze, coastal mule, and more</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{% url 'booking_create' %}" class="btn btn-primary">Book a Table</a>
+            </div>
         </div>
     </div>
 </div>
