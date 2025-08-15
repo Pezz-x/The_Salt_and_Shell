@@ -18,12 +18,6 @@ class BookingDetailView(DetailView):
     model = Booking
     template_name = 'booking_detail.html'
 
-# bookings/views.py
-from datetime import datetime
-from .models import Booking, TimeSlot
-from .forms import BookingForm
-from customers.models import Customer
-
 class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
