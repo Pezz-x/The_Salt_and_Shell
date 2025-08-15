@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/booking_form/">Book a Table</a>
+                        <a class="nav-link" href="{% url 'booking_create' %}">Book a Table</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/bookings/bookings_list/">View Bookings</a>
+                        <a class="nav-link" href="{% url 'booking_list' %}">View Bookings</a>
                     </li>
                 </ul>
             </div>
@@ -49,9 +49,9 @@
                 <div class="col-md-3">
                     <h6>Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li><a href="/" class="text-dark text-decoration-none">Home</a></li>
-                        <li><a href="/booking_form" class="text-dark text-decoration-none">Book a Table</a></li>
-                        <li><a href="/bookings_list/" class="text-dark text-decoration-none">View Bookings</a>
+                        <li><a href="{% url 'home' %}" class="text-dark text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'booking_create' %}" class="text-dark text-decoration-none">Book a Table</a></li>
+                        <li><a href="{% url 'booking_list' %}" class="text-dark text-decoration-none">View Bookings</a>
                         </li>
                     </ul>
                 </div>
