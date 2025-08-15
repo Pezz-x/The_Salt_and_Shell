@@ -13,7 +13,7 @@
                 </a>
             </div>
 
-            {% if booking_list %}
+            {% if bookings %}
             <div class="card shadow">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -31,7 +31,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for booking in booking_list %}
+                                {% for booking in bookings %}
                                 <tr>
                                     <td>{{ booking.id }}</td>
                                     <td>{{ booking.name }}</td>
