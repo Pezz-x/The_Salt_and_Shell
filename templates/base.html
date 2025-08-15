@@ -26,14 +26,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/bookings/">Book a Table</a>
+                        <a class="nav-link" href="{% url 'booking_create' %}">Book a Table</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/bookings/view-bookings/">View Bookings</a>
+                        <a class="nav-link" href="{% url 'booking_list' %}">View Bookings</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                        <a class="nav-link btn btn-outline-light ms-2" href="/accounts/logout/">Logout</a>
+                        {% else %}
+                        <a class="nav-link btn btn-outline-light ms-2" href="/accounts/login/">Staff Login</a>
+                        {% endif %}
                     </li>
                     {% endif %}
                     <li class="nav-item">
@@ -70,10 +78,13 @@
                 <div class="col-md-3">
                     <h6>Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li><a href="/" class="text-dark text-decoration-none">Home</a></li>
-                        <li><a href="/bookings/" class="text-dark text-decoration-none">Book a Table</a></li>
-                        <li><a href="/bookings/view-bookings/" class="text-dark text-decoration-none">View Bookings</a>
+                        <li><a href="{% url 'home' %}" class="text-dark text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'booking_create' %}" class="text-dark text-decoration-none">Book a Table</a>
                         </li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'booking_list' %}" class="text-dark text-decoration-none">View Bookings</a>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="col-md-3">
