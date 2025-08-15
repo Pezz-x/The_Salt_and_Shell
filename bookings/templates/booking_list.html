@@ -13,7 +13,7 @@
                 </a>
             </div>
 
-            {% if booking_list %}
+            {% if bookings %}
             <div class="card shadow">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -31,7 +31,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for booking in booking_list %}
+                                {% for booking in bookings %}
                                 <tr>
                                     <td>{{ booking.id }}</td>
                                     <td>{{ booking.name }}</td>
@@ -76,11 +76,6 @@
                 </div>
             </div>
             {% endif %}
-        </div>
-        <div>
-            <h2>Where to Find Us</h2>
-            <!-- Google map with marker -->
-            <gmp-map center="37.4220656,-122.0840897" zoom="10" map-id="DEMO_MAP_ID" style="height: 400px"></gmp-map>
         </div>
     </div>
 </div>

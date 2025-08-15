@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Booking
@@ -25,19 +25,29 @@ class BookingCreateView(CreateView):
     success_url = reverse_lazy('booking_list')
 
     def form_valid(self, form):
-        # Create new customer
-        customer = Customer.objects.create(
-            name=form.cleaned_data['customer_name'],
+        # Try to get existing customer or create a new one
+        customer, created = Customer.objects.get_or_create(
             email=form.cleaned_data['customer_email'],
-            phone_number=form.cleaned_data['customer_phone']
+            defaults={
+                'name': form.cleaned_data['customer_name'],
+                'phone_number': form.cleaned_data['customer_phone']
+            }
         )
 
-        # Create booking linked to new customer
+        # Optional flash message if customer already exists
+        if not created:
+            messages.info(
+                self.request,
+                f"Welcome back, {customer.name}! We’ve used your existing profile."
+            )
+
+        # Create booking linked to customer
         booking = form.save(commit=False)
         booking.customer = customer
         booking.save()
 
         return super().form_valid(form)
+
 
 class BookingUpdateView(UpdateView):
     model = Booking
