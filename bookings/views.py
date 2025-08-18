@@ -1,10 +1,10 @@
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Booking
+from datetime import datetime
+from .models import Booking, TimeSlot
 from .forms import BookingForm
 from customers.models import Customer
-
 
 #comment to delete
 # Create your views here.
@@ -18,6 +18,12 @@ class BookingDetailView(DetailView):
     model = Booking
     template_name = 'booking_detail.html'
 
+# bookings/views.py
+from datetime import datetime
+from .models import Booking, TimeSlot
+from .forms import BookingForm
+from customers.models import Customer
+
 class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
@@ -25,7 +31,23 @@ class BookingCreateView(CreateView):
     success_url = reverse_lazy('booking_list')
 
     def form_valid(self, form):
-        # Try to get existing customer or create a new one
+        # Ensure time slots exist for that date
+        date = form.cleaned_data['date']
+        if not TimeSlot.objects.filter(start_time__date=date).exists():
+            TimeSlot.generate_slots_for_day(date)
+
+        # Capacity check
+        MAX_COVERS = 40  # change this to your restaurant's capacity
+        slot = form.cleaned_data['time_slot']
+        current_covers = Booking.objects.filter(time_slot=slot).aggregate(
+            total=models.Sum('party_size')
+        )['total'] or 0
+
+        if current_covers + form.cleaned_data['party_size'] > MAX_COVERS:
+            form.add_error('party_size', f"Sorry, we only have {MAX_COVERS - current_covers} seats left for that time.")
+            return self.form_invalid(form)
+
+        # Link or create customer
         customer, created = Customer.objects.get_or_create(
             email=form.cleaned_data['customer_email'],
             defaults={
@@ -34,19 +56,12 @@ class BookingCreateView(CreateView):
             }
         )
 
-        # Optional flash message if customer already exists
-        if not created:
-            messages.info(
-                self.request,
-                f"Welcome back, {customer.name}! We’ve used your existing profile."
-            )
-
-        # Create booking linked to customer
         booking = form.save(commit=False)
         booking.customer = customer
         booking.save()
 
         return super().form_valid(form)
+
 
 
 class BookingUpdateView(UpdateView):
