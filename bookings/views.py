@@ -26,11 +26,6 @@ class BookingCreateView(CreateView):
     success_url = reverse_lazy('booking_create')
 
     def form_valid(self, form):
-        # Ensure time slots exist for that date
-        date = form.cleaned_data['date']
-        if not TimeSlot.objects.filter(start_time__date=date).exists():
-            TimeSlot.generate_slots_for_day(date)
-
         # Link or create customer
         customer, created = Customer.objects.get_or_create(
             email=form.cleaned_data['customer_email'],
@@ -43,6 +38,9 @@ class BookingCreateView(CreateView):
         booking = form.save(commit=False)
         booking.customer = customer
         booking.save()
+
+        # Booking success alert
+        messages.success(self.request, "Your table has been booked successfully!")
 
         return super().form_valid(form)
 
