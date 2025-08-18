@@ -23,7 +23,7 @@ class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'booking_form.html'
-    success_url = reverse_lazy('booking_list')
+    success_url = reverse_lazy('booking_create')
 
     def form_valid(self, form):
         # Ensure time slots exist for that date
