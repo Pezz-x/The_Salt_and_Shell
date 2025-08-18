@@ -4,6 +4,9 @@
 
 A Django-based web application for managing restaurant bookings, customer information, and timeslots. The project streamlines the reservation process for both customers and staff, providing an intuitive interface and robust backend.
 
+
+**Deployed Site** - https://the-salt-and-shell-a3850c52cd23.herokuapp.com/
+
 ---
 
 ## 📑 Table of Contents
@@ -91,6 +94,9 @@ The Salt and Shell application uses a relational database to manage restaurant b
 -   A **Timeslot** can be linked to multiple **Bookings** (one-to-many).
 
 This structure ensures efficient management of reservations, prevents double-booking, and allows for easy retrieval of customer and booking information.
+
+**Note**
+-   We did not go through with the customer model
 
 ![ERD](./static/images/readme_images/ERD.png)
 
@@ -236,6 +242,11 @@ Always set `DEBUG = False` before deploying to production for security reasons.
 
 The Salt and Shell features a clean, modern, and responsive user interface designed to provide an intuitive experience for both customers and staff.
 
+### Color Pallet
+
+![Light Mode](./static/images/readme_images/light_mode.png)
+![Dark Mode](./static/images/readme_images/dark_mode.png)
+
 ### Key UI Principles
 
 -   **Simplicity:**  
@@ -347,6 +358,15 @@ The following wireframes illustrate the core user interfaces of The Salt and She
 
 ## 🧾 Validation
 
+**HTML**
+
+**CSS**
+
+**JS**
+
+**Lighthouse**
+
+
 ---
 
 ## 🐞 Known Issues
@@ -369,8 +389,11 @@ The following wireframes illustrate the core user interfaces of The Salt and She
 -   **Accessibility Gaps:**  
      Some form fields and buttons may lack full accessibility support (e.g., missing ARIA labels).
 
--   **Dark Mode:**
-    Not all of the page has been styled correctly for the dark mode and causes visual problems.
+-  **Staff Login**
+    Staff login sends to 404 page when logging in.
+
+-   **Responsive Issue**
+    Issue with responsiveness on smaller screens.
 
 ---
 
