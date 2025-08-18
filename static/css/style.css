@@ -27,7 +27,16 @@ body {
 
 /* Navbar styling */
 .navbar {
-  background-color: var(--base-color) !important;
+  background-color: var(--base-variant) !important;
+}
+
+#footer {
+  background-color: var(--base-variant) !important;
+  color: var(--text-color) !important; 
+}
+
+#footer a {
+  color: var(--primary-color) !important;
 }
 
 .navbar .navbar-brand {
@@ -111,6 +120,10 @@ h1 {
 #submit_button {
   color: #000000 !important;
   border-color: #000000 !important;
+}
+
+#submit_button:hover {
+  background-color: var(--primary-color) !important;
 }
 
 /* Dark mode switch start */
