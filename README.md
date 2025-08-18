@@ -244,7 +244,9 @@ The Salt and Shell features a clean, modern, and responsive user interface desig
 
 ### Color Pallet
 
+Lightmode:
 ![Light Mode](./static/images/readme_images/light_mode.png)
+Darkmode:
 ![Dark Mode](./static/images/readme_images/dark_mode.png)
 
 ### Key UI Principles
