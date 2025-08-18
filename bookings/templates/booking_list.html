@@ -34,23 +34,23 @@
                                 {% for booking in bookings %}
                                 <tr>
                                     <td>{{ booking.id }}</td>
-                                    <td>{{ booking.name }}</td>
-                                    <td>{{ booking.phone }}</td>
-                                    <td>{{ booking.date|date:"M d, Y" }}</td>
-                                    <td>{{ booking.time|time:"g:i A" }}</td>
-                                    <td>{{ booking.guests }}</td>
+                                    <td>{{ booking.customer.name }}</td>
+                                    <td>{{ booking.customer.phone }}</td>
+                                    <td>{{ booking.time_slot.start_time|date:"M d, Y" }}</td>
+                                    <td>{{ booking.time_slot.start_time|time:"g:i A" }}</td>
+                                    <td>{{ booking.party_size }}</td>
                                     <td>
                                         <span class="badge bg-primary">Confirmed</span>
                                     </td>
                                     <td>
                                         <div class="btn-group btn-group-sm" role="group">
-                                            <a href="#" class="btn btn-outline-info" title="View Details">
+                                            <a href="{% url 'booking_detail' booking.pk %}" class="btn btn-outline-info" title="View Details">
                                                 <i class="bi bi-eye"></i>
                                             </a>
-                                            <a href="#" class="btn btn-outline-warning" title="Edit">
+                                            <a href="{% url 'booking_update' booking.pk %}" class="btn btn-outline-warning" title="Edit">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
-                                            <a href="#" class="btn btn-outline-danger" title="Delete">
+                                            <a href="{% url 'booking_delete' booking.pk %}" class="btn btn-outline-danger" title="Delete">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </div>

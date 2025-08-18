@@ -28,8 +28,8 @@
                             <div class="row">
                                 <div class="col-6">
                                     <strong>Customer:</strong><br>
-                                    {{ booking.name }}<br>
-                                    {{ booking.phone }}
+                                    {{ booking.customer.name }}<br>
+                                    {{ booking.customer.phone }}
                                 </div>
                                 <div class="col-6">
                                     <strong>Date & Time:</strong><br>
@@ -53,7 +53,7 @@
                             <button type="submit" class="btn btn-danger flex-fill">
                                 <i class="bi bi-trash"></i> Yes, Delete Booking
                             </button>
-                            <a href="{% url 'booking-detail' booking.pk %}" class="btn btn-secondary flex-fill">
+                            <a href="{% url 'booking_detail' booking.pk %}" class="btn btn-secondary flex-fill">
                                 <i class="bi bi-x-circle"></i> Cancel
                             </a>
                         </div>
@@ -62,7 +62,7 @@
             </div>
 
             <div class="mt-3 text-center">
-                <a href="{% url 'booking-list' %}" class="text-muted text-decoration-none">
+                <a href="{% url 'booking_list' %}" class="text-muted text-decoration-none">
                     <i class="bi bi-arrow-left"></i> Back to All Bookings
                 </a>
             </div>
