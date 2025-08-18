@@ -361,12 +361,15 @@ The following wireframes illustrate the core user interfaces of The Salt and She
 ## 🧾 Validation
 
 **HTML**
+
 ![HTML Validator](./static/images/readme_images/HtmlVal.PNG)
 
 **CSS**
+
 ![Css Validator](./static/images/readme_images/CssVal.PNG)
 
 **Lighthouse**
+
 ![Lighthouse score](./static/images/readme_images/Lighthouse.PNG)
 
 ---
