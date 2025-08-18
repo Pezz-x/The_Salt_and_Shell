@@ -7,7 +7,7 @@ class BookingForm(forms.ModelForm):
     customer_email = forms.EmailField()
     customer_phone = forms.CharField(max_length=20)
     date = forms.DateField(widget=forms.SelectDateWidget)
-    time_slot = forms.ModelChoiceField(queryset=TimeSlot.objects.none())
+    time_slot = forms.ModelChoiceField(queryset=TimeSlot.objects.all())
 
     class Meta:
         model = Booking

@@ -16,7 +16,7 @@ pip freeze local > requirements.txt
 python manage.py runserver
 
 
-
+ 
 -- create project - replace {PROJECT_NAME}  and {DIRECTORY NAME} (eg.: django-admin startproject my_project .)dot to create in currenty DIRECTORY
 django-admin startproject {PROJECT_NAME} {DIRECTORY NAME}
 

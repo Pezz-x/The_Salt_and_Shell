@@ -19,11 +19,6 @@ class BookingDetailView(DetailView):
     template_name = 'booking_detail.html'
 
 # bookings/views.py
-from datetime import datetime
-from .models import Booking, TimeSlot
-from .forms import BookingForm
-from customers.models import Customer
-
 class BookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
@@ -35,17 +30,6 @@ class BookingCreateView(CreateView):
         date = form.cleaned_data['date']
         if not TimeSlot.objects.filter(start_time__date=date).exists():
             TimeSlot.generate_slots_for_day(date)
-
-        # Capacity check
-        MAX_COVERS = 40  # change this to your restaurant's capacity
-        slot = form.cleaned_data['time_slot']
-        current_covers = Booking.objects.filter(time_slot=slot).aggregate(
-            total=models.Sum('party_size')
-        )['total'] or 0
-
-        if current_covers + form.cleaned_data['party_size'] > MAX_COVERS:
-            form.add_error('party_size', f"Sorry, we only have {MAX_COVERS - current_covers} seats left for that time.")
-            return self.form_invalid(form)
 
         # Link or create customer
         customer, created = Customer.objects.get_or_create(
