@@ -33,17 +33,21 @@ body {
 .navbar .navbar-brand {
   font-family: var(--title-font);
   font-size: 1.8rem;
-  color: #000000 !important;
+  color: var(--text-color) !important;
 }
 
 .navbar .nav-link,
 .navbar .navbar-nav .nav-link {
-  color: #000000 !important;
+  color: var(--text-color) !important;
 }
 
 .navbar .nav-link:hover,
 .navbar .navbar-nav .nav-link:hover {
   color: #333333 !important;
+}
+
+.navbar-toggler-icon {
+  stroke: var(--text-color) !important;
 }
 
 /* Title styling */
@@ -56,7 +60,7 @@ h1 {
 #menuModalLabel,
 .modal-body h6 {
   font-family: var(--title-font);
-  color: #000000 !important;
+  color: var(--text-color) !important;
 }
 
 #menuModalLabel {
@@ -94,14 +98,19 @@ h1 {
 /* Home page button styling */
 .btn-primary {
   background-color: transparent !important;
-  border: 2px solid #000000 !important;
-  color: #000000 !important;
+  border: 2px solid var(--text-color) !important;
+  color: var(--text-color) !important;
 }
 
 .btn-primary:hover {
   background-color: #000000 !important;
+  border-color: var(--text-color) !important;
+  color: var(--text-color) !important;
+}
+
+#submit_button {
+  color: #000000 !important;
   border-color: #000000 !important;
-  color: #ffffff !important;
 }
 
 /* Dark mode switch start */
