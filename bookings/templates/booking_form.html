@@ -8,6 +8,18 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h1 class="card-title text-center mb-4">Book a Table</h1>
+                    <!-- Form sucess alert message -->
+                    {% if messages %}
+                        <div class="mt-3">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <!-- Book a Table form -->
                     <form method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
